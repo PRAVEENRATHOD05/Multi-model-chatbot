@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assistant.AI</title>
+  <link rel="stylesheet" href="styles2.css">
+  <script defer src="script2.js"></script>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar">
+    <button id="toggle-sidebar" class="sidebar-toggle">&#9776;</button>
+    <h2>Chat History</h2>
+    <ul id="chat-history">
+      <li id="flowchart-btn"><span class="icon">🗨️</span> Flow chart</li>
+      <li id="guidance-btn"><span class="icon">🗨️</span> Guidance</li>
+      <li id="askme-btn"><span class="icon">🗨️</span> Ask me</li>
+    </ul>
+  </aside>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    <header class="main-header">
+      <h1>Your Assistant</h1>
+      <div class="profile-menu">
+        <div class="profile-icon">
+          <img src="https://via.placeholder.com/40" alt="Profile">
+        </div>
+        <div class="dropdown-menu">
+          <ul>
+            <li id="settings-option">Settings</li>
+            <li id="plugins-option">Plugins</li>
+            <li id="logout-option">Logout</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- Chat Display Section -->
+    <div class="center-section">
+      <div id="chat-display" class="chat-box">
+        <p>Select a conversation from the sidebar</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

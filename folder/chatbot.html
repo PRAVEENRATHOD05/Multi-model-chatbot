@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpac Mining Assistant</title>
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <h2>Surpac Assistant</h2>
+            <ul>
+                <li id="new-chat"><i class="fas fa-plus"></i> New Chat</li>
+                <li id="toggle-history"><i class="fas fa-history"></i> Chat History</li>
+                <li class="module-selector">
+                    <select id="module-select">
+                        <option value="">Select Module</option>
+                        <option value="geology">Geology</option>
+                        <option value="survey">Survey</option>
+                        <option value="block-modeling">Block Modeling</option>
+                        <option value="mine-planning">Mine Planning</option>
+                        <option value="geostatistics">Geostatistics</option>
+                        <option value="drill-blast">Drill & Blast</option>
+                    </select>
+                </li>
+            </ul>
+            <div id="chat-history" class="hidden">
+                <h3>Previous Sessions</h3>
+                <ul id="history-list"></ul>
+            </div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="chat-container">
+            <div class="header">
+                <div class="header-left">
+                    <button id="toggle-sidebar"><i class="fas fa-bars"></i></button>
+                    <h1>Surpac Mining Assistant</h1>
+                </div>
+                <div class="header-right">
+                    <div class="module-indicator" id="current-module">
+                        General Mode
+                    </div>
+                    <div class="profile-dropdown">
+                        <button class="profile-icon-btn" id="profileBtn">
+                            <img src="mining-icon.png" alt="Profile" class="profile-icon">
+                        </button>
+                        <div class="dropdown-content" id="dropdownContent">
+                            <a href="#" id="profile-link"><i class="fas fa-user"></i> Profile</a>
+                            <a href="#" id="settings-link"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="#" id="theme-toggle"><i class="fas fa-moon"></i> Toggle Theme</a>
+                            <a href="#" id="export-chat"><i class="fas fa-download"></i> Export Chat</a>
+                            <a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-section" id="chat-section">
+                <!-- Welcome Message -->
+                <div class="welcome-message">
+                    <h2>Welcome to Surpac Mining Assistant</h2>
+                    <p>I can help you with:</p>
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-cube"></i>
+                            <span>Block Modeling</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Grade Estimation</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-map"></i>
+                            <span>Mine Planning</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-bomb"></i>
+                            <span>Drill & Blast</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Input Area -->
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <div class="input-actions">
+                        <label for="file-upload" class="file-upload-label">
+                            <i class="fas fa-paperclip"></i>
+                        </label>
+                        <input type="file" id="file-upload" class="file-upload" 
+                               accept=".str,.dtm,.dm,.isis,.csv,.xlsx,.txt" />
+                    </div>
+                    
+                    <div class="input-main">
+                        <textarea id="user-input" 
+                                placeholder="Ask about Surpac (geology, mining, estimation...)" 
+                                rows="1"></textarea>
+                        <button id="send-btn" class="send-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="input-feedback" id="input-feedback"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="chatbot.js"></script>
+</body>
+</html>

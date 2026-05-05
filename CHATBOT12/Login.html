@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Form Container Styles */
+    .form-container {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      margin: 20px;
+      position: relative;
+      overflow: hidden;
+      animation: slideIn 1s ease-out;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .form-container h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .form-container form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .form-container label {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .form-container input {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-container input:focus {
+      border-color: #2980b9;
+    }
+
+    .form-container button {
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #2980b9;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-container button:hover {
+      background-color: #3498db;
+    }
+
+    .form-toggle {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #2980b9;
+      cursor: pointer;
+    }
+
+    .form-toggle:hover {
+      text-decoration: underline;
+    }
+
+    /* Our Story Section Styles */
+    .our-story-section {
+      background-color: #ffffff;
+      padding: 60px 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .our-story-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.7), rgba(200, 200, 200, 0.5));
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .our-story-section .container {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      z-index: 1;
+    }
+
+    .our-story-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    .our-story-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .story-text {
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .story-text h3 {
+      font-size: 2rem;
+      color: #2980b9;
+      margin-bottom: 15px;
+    }
+
+    .story-text p {
+      font-size: 1.125rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .story-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .timeline-item {
+      background-color: #ecf0f1;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      transform: translateY(20px);
+      opacity: 0;
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .timeline-item h4 {
+      font-size: 1.2rem;
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+
+    .timeline-item p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .timeline-item.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .our-story-content {
+        flex-direction: column;
+      }
+
+      .story-timeline {
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Registration Form -->
+  <div class="form-container" id="registration-form">
+    <h2>Register</h2>
+    <form id="register">
+      <label for="register-username">Username</label>
+      <input type="text" id="register-username" required>
+      <label for="register-email">Email</label>
+      <input type="email" id="register-email" required>
+      <label for="register-password">Password</label>
+      <input type="password" id="register-password" required>
+      <button type="submit">Register</button>
+    </form>
+    <div class="form-toggle" onclick="toggleForms()">Already have an account? Login</div>
+  </div>
+
+  <!-- Login Form -->
+  <div class="form-container" id="login-form" style="display:none;">
+    <h2>Login</h2>
+    <form id="login">
+      <label for="login-username">Username</label>
+      <input type="text" id="login-username" required>
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" required>
+      <button type="submit">Login</button>
+    </form>
+    <div class="form-toggle" onclick="toggleForms()">Don't have an account? Register</div>
+  </div>
+
+  <!-- Our Story Section -->
+  <section id="our-story" class="our-story-section">
+    <div class="container">
+      <h2>Our Story</h2>
+      <div class="our-story-content">
+        <div class="story-text">
+          <h3>How We Started</h3>
+          <p>Our journey began with a simple idea: to make advanced AI technology accessible to everyone. What started as a small team working in a garage has grown into a global company leading the way in AI-powered gadgets.</p>
+          <p>Through dedication, innovation, and a commitment to excellence, we have built a reputation for delivering high-quality products that transform lives. Our story is one of passion, perseverance, and a drive to make a difference.</p>
+        </div>
+        <div class="story-timeline">
+          <div class="timeline-item">
+            <h4>2015</h4>
+            <p>Founded with a vision to revolutionize technology.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>2018</h4>
+            <p>Launched our first AI-powered product successfully.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>2020</h4>
+            <p>Expanded globally, reaching new markets.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>2023</h4>
+            <p>Continued innovation with cutting-edge technology and products.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Advanced JavaScript for Animations and Form Toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const timelineItems = document.querySelectorAll('.timeline-item');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observerCallback = (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+          } else {
+            entry.target.classList.remove('fade-in');
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+      timelineItems.forEach(item => {
+        observer.observe(item);
+      });
+    });
+
+    function toggleForms() {
+      const registrationForm = document.getElementById('registration-form');
+      const loginForm = document.getElementById('login-form');
+      if (registrationForm.style.display === 'none') {
+        registrationForm.style.display = 'block';
+        loginForm.style.display = 'none';
+      } else {
+        registrationForm.style.display = 'none';
+        loginForm.style.display = 'block';
+      }
+    }
+
+    document.getElementById('register').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Registration successful!');
+    });
+
+    document.getElementById('login').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Login successful!');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistant.AI</title>
+    <link rel="stylesheet" href="chatbot.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <ul>
+                <li id="toggle-history">Chat History</li>
+            </ul>
+            <div id="chat-history" class="hidden">
+                <h3>Chat History</h3>
+                <ul id="history-list"></ul>
+            </div>
+        </div>
+
+        <!-- Main Chat Area -->
+         <div class="button-container1">
+            <button id="toggle-sidebar">☰</button>
+         </div>
+        <div class="chat-container">
+            <div class="header">
+                <h1>Projects.ai</h1>
+                <div class="profile-dropdown">
+                    <button class="profile-icon-btn" id="profileBtn">
+                        <img src="surpac.jpg" alt="Profile" class="profile-icon">
+                    </button>
+                    <div class="dropdown-content" id="dropdownContent">
+                        <a href="#">Profile</a>
+                        <a href="#">Settings</a>
+                        <a href="#" id="lightMode">Light Mode</a>
+                        <a href="#" id="darkMode">Dark Mode</a>
+                        <a href="#">Logout</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Section -->
+            <div class="chat-section" id="chat-section"></div>
+
+            <!-- Chat Input Area -->
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <label for="file-upload" class="file-upload-label">⭐</label>
+                    <input type="file" id="file-upload" class="file-upload" />
+                    <input type="text" id="user-input" placeholder="Type your message..." />
+                    <button id="send-btn" class="send-btn">➤</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="chatbot.js"></script>
+</body>
+</html>
